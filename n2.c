@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-	float f1, f2, f3, f4, f5;
+    float f1, f2, f3, f4, f5;
     float abs_sum, abs_dif;
     float first_max, second_max, first_min, second_min;
 
@@ -17,10 +17,10 @@ int main() {
         abs_dif *= -1;
     }
 
-	if (f1 > f2) {
-	    first_min = f2;
+    if (f1 > f2) {
+        first_min = f2;
         first_max = f1;
-	} else {
+    } else {
         first_min = f1;
         first_max = f2;
     }
@@ -63,9 +63,9 @@ int main() {
     }
 
     printf("Thank you, enjoy your result!\n");
-	printf("Abs sum: %.2f\n", abs_sum);
+    printf("Abs sum: %.2f\n", abs_sum);
     printf("Abs dif: %.2f\n", abs_dif);
-	printf("Max sum: %.2f\n", first_max + second_max);
-	printf("Min sum: %.2f\n", first_min + second_min);
+    printf("Max sum: %.2f\n", first_max + second_max);
+    printf("Min sum: %.2f\n", first_min + second_min);
     return 0;
 }
