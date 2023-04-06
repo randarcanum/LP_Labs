@@ -27,21 +27,20 @@ int main() {
 
     if (f3 > first_max) {
         second_max = first_max;
-        second_min = first_max;
         first_max = f3;
-    } else if (f3 > second_max) {
-        second_max = f3;
-        second_min = f3;
-    } else {
+    } else if (f3 < first_min) {
         second_max = first_min;
-        second_min = first_min;
         first_min = f3;
+    } else {
+        second_max = f3;
     }
 
     if (f4 > first_max) {
+        second_min = second_max;
         second_max = first_max;
         first_max = f4;
     } else if (f4 > second_max) {
+        second_min = second_max;
         second_max = f4;
     } else if (f4 < first_min) {
         second_min = first_min;
