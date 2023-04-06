@@ -23,7 +23,7 @@ int main() {
     if (a + b > c) {
         printf("A + B > C, so A + B = %d\n", a + b);
     } else {
-        printf("A + B <<= C, so A - B = %d\n", a - b);
+        printf("A + B <= C, so A - B = %d\n", a - b);
     };
     return 0;
 }
