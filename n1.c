@@ -8,15 +8,14 @@ int main() {
     int min = a;
     if (b < a) {
         min = b;
-        if (c < b) {
-            min = c;
-        };
     } else {
         max = b;
-        if (c > b) {
-            max = c;
-        };
-    };
+    }
+    if (c < min) {
+        min = c;
+    } else if (c > max) {
+        max = c;
+    }
     printf("\nSum = %d\n", a + b + c);
     printf("Max^2 = %d\n", max * max);
     printf("2*Min = %d\n", min * 2);
@@ -24,6 +23,6 @@ int main() {
         printf("A + B > C, so A + B = %d\n", a + b);
     } else {
         printf("A + B <= C, so A - B = %d\n", a - b);
-    };
+    }
     return 0;
 }
