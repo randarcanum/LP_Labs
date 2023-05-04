@@ -1,15 +1,30 @@
 #include <stdio.h>
 
 int main() {
-    int a[10], d[10];
+    int a[10], b[3], d[10];
     int j;
     printf("10-number array, please:\n");
     for (int i = 0; i < 10; i++) {
-        scanf("%d,", &a[i]);
+        scanf("%d", &a[i]);
     }
-    int b[3] = {2147483647, 0, 0};
-    int c[3] = {-2147483648, 0, 0};
-    for (int i = 0; i < 10; i++) {
+    if (a[0] < a[1]) {
+        b[0] = a[0];
+        b[2] = a[1];
+    } else {
+        b[0] = a[1];
+        b[2] = a[0];
+    }
+    if (a[2] < b[0]) {
+        b[1] = b[0];
+        b[0] = a[2];
+    } else if (a[2] > b[2]) {
+        b[1] = b[2];
+        b[2] = a[2];
+    } else {
+        b[1] = a[2];
+    }
+    int c[3] = {b[2], b[1], b[0]};
+    for (int i = 3; i < 10; i++) {
         j = 0;
         while (j < 3) {
             if (a[i] <= b[j]) {
@@ -50,10 +65,9 @@ int main() {
         printf("%6d %10d\n", b[i], c[i]);
     }
     printf("Even-odd array:\n");
-    for (int i = 0; i < 9; i++) {
-        printf("%d, ", d[i]);
+    for (int i = 0; i < 10; i++) {
+        printf("%d\n", d[i]);
     }
-    printf("%d\n", d[9]);
     printf("Array has %d even, %d odd numbers.\n", even, odd);
     printf("Array has %d numbers, divisible by 5.\n", mod_five);
     return 0;
