@@ -22,7 +22,30 @@ void fill(int x, int *m, int n) {
     }
 }
 int minmax(int *m, int n) {
-
+    int min = m[0], max = m[0];
+    for (int i = 1; i < n; i++) {
+        if (m[i] < min) min = m[i];
+        if (m[i] > max) max = m[i];
+    }
+    return min + max;
+}
+void shuff(int *m, int n) {
+    int *temp = new int[n];
+    int j = 0;
+    for (int i = 0; i < n; i++) {
+        if (m[i] % 2 != 0) {
+            temp[j] = m[i];
+            j++;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        if (m[i] % 2 == 0) {
+            temp[j] = m[i];
+            j++;
+        }
+        m[i] = temp[i];
+    }
+    delete[] temp;
 }
 int main() {
     int len, inp;
@@ -35,5 +58,11 @@ int main() {
     cin >> inp;
     fill(inp, arr, len);
     cout << minmax(arr, len) << endl;
+    shuff(arr, len);
+    for (int i = 0; i < len; i++) {
+        cout << arr[i] << ' ';
+    }
+    cout << endl;
     delete[] arr;
+    return 0;
 }
