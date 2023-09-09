@@ -26,19 +26,11 @@ int main() {
     }
     cout << "x";
     if (c >= 0) cout << " + " << c << " = 0" << endl; else cout << " - " << -c << " = 0" << endl;
-    if (a == 0) {
-        if (b == 0) {
-            if (c == 0) cout << "Infinite roots" << endl;
-            else cout << "No roots" << endl;
-        }
-        else cout << "x = " << -c/b << endl;
-    } else {
-        delta = b*b - 4*a*c;
-        if (delta < 0) cout << "No real roots" << endl;
-        else if (delta == 0) cout << "x = " << -b/(2*a) << endl;
-        else {
-            cout << "x_1 = " << (-b + sqrt(delta))/(2*a) << endl;
-            cout << "x_2 = " << (-b - sqrt(delta))/(2*a) << endl;
-        }
+    delta = b*b - 4*a*c;
+    if (delta < 0) cout << "No real roots" << endl;
+    else if (delta == 0) cout << "x = " << -b/(2*a) << endl;
+    else {
+        cout << "x_1 = " << (-b + sqrt(delta))/(2*a) << endl;
+        cout << "x_2 = " << (-b - sqrt(delta))/(2*a) << endl;
     }
 }
