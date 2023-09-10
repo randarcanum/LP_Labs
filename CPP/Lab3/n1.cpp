@@ -21,12 +21,8 @@ int main() {
     char str1[255], str2[255];
     cout << "First string: ";
     cin >> str1;
-    int i1 = len(str1);
-    cout << "Length = " << i1 << endl;
     cout << "Second string: ";
     cin >> str2;
-    int i2 = len(str2);
-    cout << "Length = " << i2 << endl;
-    cout << "Concat string: " << glue(str1, i1, str2, i2) << endl;
+    cout << "Concat string: " << glue(str1, len(str1), str2, len(str2)) << endl;
     return 0;
 }
