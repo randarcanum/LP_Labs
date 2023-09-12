@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 void fill(int x, int *m, int n) {
     switch(x) {
