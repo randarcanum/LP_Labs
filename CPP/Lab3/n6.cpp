@@ -2,9 +2,13 @@
 #include <cstring>
 using namespace std;
 int src(int *m, int n, int *b, int bn) {
-    int j = 0;
-    for (int i = 0; i < n-bn+1; i++) {
-        if (m[i] = b[0]) if (memcmp(m+i, b, 4*bn) == 0) j++;
+    int i = 0, j = 0;
+    while (i < n-bn+1) {
+        if (m[i] == b[0]) if (memcmp(m+i, b, 4*bn) == 0) {
+            j++;
+            i += bn;
+        }
+        i++;
     }
     return j;
 }
