@@ -8,7 +8,7 @@ int len(char *s) {
     return j;
 }
 int main() {
-    char str[255];
+    char str[256];
     cout << "Enter string: ";
     cin >> str;
     cout << "String length = " << len(str) << endl;

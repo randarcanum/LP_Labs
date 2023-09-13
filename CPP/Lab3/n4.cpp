@@ -17,7 +17,7 @@ bool comp(char *s1, char *s2) {
     } else return 0;
 }
 int main() {
-    char str1[255], str2[255];
+    char str1[256], str2[256];
     cout << "First string: ";
     cin >> str1;
     cout << "Second string: ";

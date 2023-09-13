@@ -2,7 +2,7 @@
 using namespace std;
 int rep(char *s, int l, char *s1, int l1, char *s2, int l2) {
     int j, q = 0, r = 0, i = 0;
-    char snew[255];
+    char snew[256];
     while (i < l) {
         snew[q] = s[i];
         if (s[i] == s1[0]) {
@@ -35,7 +35,7 @@ int len(char *s) {
     return j;
 }
 int main() {
-    char str[255], str1[255], str2[255];
+    char str[256], str1[256], str2[256];
     cout << "String: ";
     cin >> str;
     cout << "Find: ";

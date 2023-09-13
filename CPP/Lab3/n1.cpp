@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 char *glue(char *s1, int l1, char *s2, int l2) {
-    static char str[255];
+    static char str[256];
     for (int i = 0; i < l1; i++) {
         str[i] = s1[i];
     }
@@ -18,7 +18,7 @@ int len(char *s) {
     return j;
 }
 int main() {
-    char str1[255], str2[255];
+    char str1[256], str2[256];
     cout << "First string: ";
     cin >> str1;
     cout << "Second string: ";
