@@ -9,18 +9,9 @@ struct user {
         if (lname) cout << "Last name:   " << lname << endl;
         if (fname) cout << "First name:  " << fname << endl;
         if (mname) cout << "Middle name: " << mname << endl;
-        if (age) cout << "Age:         " << *age << endl;
-        if (sex) cout << "Sex:         " << *sex << endl;
-        if (uses) cout << "Uses number: " << *uses << endl;
-    }
-    void initl(char l) {
-        lname = new char[l];
-    }
-    void initf(char l) {
-        fname = new char[l];
-    }
-    void initm(char l) {
-        mname = new char[l];
+        if (age)   cout << "Age:         " << *age << endl;
+        if (sex)   cout << "Sex:         " << *sex << endl;
+        if (uses)  cout << "Uses number: " << *uses << endl;
     }
     void release() {
         delete[] lname;
