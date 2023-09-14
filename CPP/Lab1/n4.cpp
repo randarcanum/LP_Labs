@@ -22,7 +22,7 @@ int main() {
     for (int i = 1; i < 200; i++) {
         if (abs(m[i-1] - m[i]) < 5) {
             int j = i + 1;
-            while (abs(m[j] - m[i-1]) < 5 || j == 200) j++;
+            while (abs(m[j] - m[i-1]) < 5 && j < 200) j++;
             if (j == 200) {
                 j = 1;
                 while (abs(m[j] - m[i-1]) < 5 || abs(m[j-1] - m[i]) < 5 || abs(m[j+1] - m[i]) < 5) j++;
