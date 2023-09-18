@@ -2,10 +2,10 @@
 #include <fstream>
 using namespace std;
 struct user {
-    char *lname, *fname, *mname, *sex;
-    char *block;
-    unsigned char *age;
-    unsigned short *uses;
+    char *lname = nullptr, *fname = nullptr, *mname = nullptr, *sex = nullptr;
+    char *block = nullptr;
+    unsigned char *age = nullptr;
+    unsigned short *uses = nullptr;
     void print() {
         if (lname) cout << "Last name:   " << lname << endl;
         if (fname) cout << "First name:  " << fname << endl;

@@ -7,8 +7,7 @@ int src(int *m, int n, int *b, int bn) {
         if (m[i] == b[0]) if (memcmp(m+i, b, 4*bn) == 0) {
             j++;
             i += bn;
-        }
-        i++;
+        } else i++;
     }
     return j;
 }
