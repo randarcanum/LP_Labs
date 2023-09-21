@@ -25,6 +25,7 @@ int rep(char *s, int l, char *s1, int l1, char *s2, int l2) {
     for (int i = 0; i < q; i++) {
         s[i] = snew[i];
     }
+    s[q] = '\0';
     return r;
 }
 int len(char *s) {
