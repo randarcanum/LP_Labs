@@ -2,19 +2,19 @@
 #include <fstream>
 using namespace std;
 float det(float **matrix, int size, bool *flag) {
-    int k = 0, l = 0;
-    float comb = 1;
-    if (size) {
-        comb = 0;
-        while (k < size) {
-            if (flag[l]) {
-                flag[l] = 0;
-                comb += ((size + k) % 2 * 2 - 1) * matrix[l][size-1] * det(matrix, size-1, flag);
-                flag[l] = 1;
-                k++;
-            }
-            l++;
+    int k = 0, l = 0, q;
+    float comb = 0;
+    if (size % 2) q = 1; else q = -1;
+    while (k < size) {
+        if (flag[l]) {
+            if (size == 1) return matrix[l][0];
+            flag[l] = 0;
+            comb += q * matrix[l][size-1] * det(matrix, size-1, flag);
+            q = -q;
+            flag[l] = 1;
+            k++;
         }
+        l++;
     }
     return comb;
 }
@@ -36,7 +36,7 @@ int main() {
         f[i] = 1;
     }
     m.close();
-    float delta = det(a, n, f);
+    float delta = det(a, n, f), x_i;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             printf("%5.3g ", a[j][i]);
@@ -47,7 +47,9 @@ int main() {
         t = a[i];
         a[i] = b;
         b = t;
-        printf("%.3g\n", det(a, n, f) / delta);
+        x_i = det(a, n, f) / delta;
+        if (abs(x_i) < 1e-5) x_i = 0;
+        printf("%.3g\n", x_i);
         t = a[i];
         a[i] = b;
         b = t;

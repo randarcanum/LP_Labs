@@ -21,8 +21,7 @@ int main() {
     //        }
     //    }
     //}
-    float *klo = &m[2][2];
-    for (int i = 0; i < 9; i++, klo--) {
+    for (float *klo = &m[2][2]; klo > m[0]; klo--) {
         for (float *flo = m[0]; flo < klo; flo++) {
             if (*flo > *(flo+1)) {
                 t = *flo;
