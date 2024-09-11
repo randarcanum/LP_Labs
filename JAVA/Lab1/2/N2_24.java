@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class N24 {
+public class N2_24 {
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.print("Enter five numbers: ");
@@ -28,8 +28,8 @@ public class N24 {
         if (min == max)
             System.out.println("All five numbers are equal");
         else {
-            System.out.printf("%d is the largest%n", max);
-            System.out.printf("%d is the smallest%n", min);
+            System.out.printf("%d is the largest\n", max);
+            System.out.printf("%d is the smallest\n", min);
         }
     }
 }
