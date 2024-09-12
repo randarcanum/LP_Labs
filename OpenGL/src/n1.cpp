@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <gl/glut.h>
+#include <gl/gl.h>
 
 GLint width = 512, height = 512;
 const int cube_size = 200;
