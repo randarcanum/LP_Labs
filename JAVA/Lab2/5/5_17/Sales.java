@@ -1,26 +1,26 @@
 import java.util.Scanner;
 public class Sales {
     public static void main(String[] args) {
-        double[] price = {2.98, 4.50, 9.98, 4.49, 6.87};
         double sum = 0;
-        int number, quantity;
+        int number;
         Scanner input = new Scanner(System.in);
         System.out.println("(Enter 0 to exit)");
         while (true) {
             System.out.print("Enter product number (1-5): ");
             number = input.nextInt();
-            switch (number) {
-                case 0 -> {
-                    System.out.printf("Total value: %.2f\n", sum);
-                    System.exit(0);
+            if (number == 0) break;
+            if (number < 1 || number > 5) System.err.println("Invalid product number!");
+            else {
+                System.out.print("Enter quantity sold: ");
+                switch (number) {
+                    case 1 -> sum += input.nextInt()*2.98;
+                    case 2 -> sum += input.nextInt()*4.50;
+                    case 3 -> sum += input.nextInt()*9.98;
+                    case 4 -> sum += input.nextInt()*4.49;
+                    case 5 -> sum += input.nextInt()*6.87;
                 }
-                case 1, 2, 3, 4, 5 -> {
-                    System.out.print("Enter quantity sold: ");
-                    quantity = input.nextInt();
-                    sum += quantity*price[number-1];
-                }
-                default -> System.err.println("Invalid product number!");
             }
         }
+        System.out.printf("Total value: %.2f\n", sum);
     }
 }
