@@ -37,13 +37,11 @@ int main()
     printf("\ny\t");
     for (int i = 0; i < M; i++)
     {
-        double sum = 0;
+        double t = (xtest[i] - x[0]) / (x[1] - x[0]), sum = 0, coef = 1;
         for (int j = 0; j < N; j++)
         {
-            double f = a[j];
-            for (int k = 0; k < j; k++)
-                f *= (xtest[i] - x[k]);
-            sum += f;
+            sum += coef * a[j];
+            coef *= (t - j) / (j + 1);
         }
         printf("%.3f\t", sum);
     }
