@@ -28,12 +28,6 @@ int main()
     }
     delta[1] = -h[2] / (2 * (h[1] + h[2]));
     lambda[1] = 1.5 * (l[2] - l[1]) / (h[1] + h[2]);
-    for (int k = 3; k < N; k++)
-    {
-        delta[k - 1] = -h[k] / (2 * h[k - 1] + 2 * h[k] + h[k - 1] * delta[k - 2]);
-        lambda[k - 1] = (3 * l[k] - 3 * l[k - 1] - h[k - 1] * lambda[k - 2]) /
-                        (2 * h[k - 1] + 2 * h[k] + h[k - 1] * delta[k - 2]);
-    }
     c[0] = 0;
     c[N - 1] = 0;
     for (int k = N - 1; k >= 2; k--)

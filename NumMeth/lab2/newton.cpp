@@ -22,28 +22,40 @@ int main()
         a[k] = y[k];
         b[k] = y[N-k-1];
     }
-    for (int k = 1; k < N; k++)
+    for (int k = 1; k < 4; k++)
     {
-        for (int i = k; i < N; i++)
+        for (int i = N-1; i >= k; i--)
         {
-            a[k] -= a[k-1];
+            a[i] -= a[i-1];
+            b[i] = b[i-1] - b[i];
         }
     }
     printf("x\t");
     for (int k = 0; k < M; k++)
     {
-        printf("%.3f\t", xtest[k]);
+        printf("%.4f\t", xtest[k]);
     }
     printf("\ny\t");
     for (int i = 0; i < M; i++)
     {
-        double t = (xtest[i] - x[0]) / (x[1] - x[0]), sum = 0, coef = 1;
-        for (int j = 0; j < N; j++)
-        {
-            sum += coef * a[j];
-            coef *= (t - j) / (j + 1);
+        double t, sum = 0, coef = 1;
+        if (std::abs(xtest[i] - x[0]) < std::abs(xtest[i] - x[N-1]))
+        {  
+            t = (xtest[i] - x[0]) / (x[1] - x[0]);
+            for (int j = 0; j < 4; j++)
+            {
+                sum += coef * a[j];
+                coef *= (t - j) / (j + 1);
+            }
+        } else {
+            t = (xtest[i] - x[N-1]) / (x[1] - x[0]);
+            for (int j = 0; j < 4; j++)
+            {
+                sum += coef * b[j];
+                coef *= (t + j) / (j + 1);
+            }
         }
-        printf("%.3f\t", sum);
+        printf("%.4f\t", sum);
     }
     printf("\n");
     return 0;
