@@ -12,7 +12,7 @@ public class Account {
     public void update_balance(){
         balance += items;
         balance -= credits;
-        System.out.printf("New balance: %d\n", number, balance);
+        System.out.printf("New %d balance: %d\n", number, balance);
         if (balance < limit)
             System.err.print("Credit limit exceeded.\n");
     }

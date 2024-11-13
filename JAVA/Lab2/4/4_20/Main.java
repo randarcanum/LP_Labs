@@ -4,7 +4,8 @@ public class Main {
         Scanner input = new Scanner(System.in);
         Employee[] employees = new Employee[3];
         String name;
-        int hours, rate;
+        int hours;
+        double rate;
         for (int i = 0; i < 3; i++) {
             switch (i) {
                 case 0 -> System.out.println("=First employee=");
@@ -16,7 +17,7 @@ public class Main {
             System.out.print("Number of hours: ");
             hours = input.nextInt();
             System.out.print("Hourly rate:     ");
-            rate = input.nextInt();
+            rate = input.nextDouble();
             input.nextLine();
             employees[i] = new Employee(name, hours, rate);
         }
