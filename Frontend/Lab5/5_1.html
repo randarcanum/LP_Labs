@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main" id="box">
+            <div class="forest" id="forest">
+                Forest
+            </div>
+            <script>
+                function run() {
+                    let forest = document.getElementById("forest")
+                    let box = document.getElementById("box")
+                    //console.log(document.getElementById("box").offsetWidth)
+                    forest.style.left = forest.offsetLeft + 1 + "px"
+                    while (forest.offsetLeft+forest.offsetWidth > box.offsetLeft+box.offsetWidth && forest.innerText != "")
+                        forest.innerText = forest.innerText.slice(0, -1)
+                    setTimeout("run()", 5)
+                }
+                run()
+            </script>
+            <p align="center">
+                <a>Назад</a>
+                <a href="5_2.html">Вперед</a>
+            </p>
+        </div>
+    </body>
+</html>
