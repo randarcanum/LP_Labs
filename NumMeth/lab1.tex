@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt]{report}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}	
 \usepackage[russian]{babel}
@@ -6,10 +6,45 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \begin{document}
-	1) $X = \sqrt{\dfrac{cd}{b}}$\\
-	$\dfrac{\varDelta X}{X} = \dfrac{1}{2} \cdot \left( \dfrac{\varDelta c}{c} + \dfrac{\varDelta d}{d} + \dfrac{\varDelta b}{b} \right)$\\
-	$\dfrac{\varDelta c}{c} = \dfrac{0,0002}{0,7568} = 0,00027$\\
-	$\dfrac{\varDelta d}{d} = \dfrac{0,02}{21,7} = 0,00093$\\
-	$\dfrac{\varDelta b}{b} = \dfrac{0,01}{2,65} = 0,00378$\\
-	$\dfrac{\varDelta X}{X} = \dfrac{1}{2} \cdot \left( 0,00027 + 0,00093 + 0,00378 \right) = 0,00498$
+	\subsection*{1)}
+	\fbox{\parbox{180pt}{
+		$X = \sqrt{\dfrac{cd}{b}}$\\[1ex]
+		$c = 0,7568 \pm 0,0002$\\[1ex]
+		$d = 21,7 \pm 0,02$\\[1ex]
+		$b = 2,65 \pm 0,01$
+	}}\\[1ex]
+	$X = \sqrt{\dfrac{0,7568 \cdot 21,7}{2,65}} = 2,49$\\[1ex]
+	$\dfrac{\varDelta X}{X} = \dfrac{1}{2} \cdot \left( \dfrac{\varDelta c}{c} + \dfrac{\varDelta d}{d} + \dfrac{\varDelta b}{b} \right)$\\[1ex]
+	$\dfrac{\varDelta c}{c} = \dfrac{0,0002}{0,7568} = 0,00027$\\[1ex]
+	$\dfrac{\varDelta d}{d} = \dfrac{0,02}{21,7} = 0,00093$\\[1ex]
+	$\dfrac{\varDelta b}{b} = \dfrac{0,01}{2,65} = 0,00378$\\[1ex]
+	$\dfrac{\varDelta X}{X} = \dfrac{1}{2} \cdot \left( 0,00027 + 0,00093 + 0,00378 \right) = 0,00498$\\[1ex]
+	$\varDelta X = \dfrac{\varDelta X}{X} \cdot X = 0,00498 \cdot 2,49 = 0,02$\\[1ex]
+	\fbox{$X = 2,49 \pm 0,02$}
+	\subsection*{2)}
+	\fbox{\parbox{180pt}{
+			$X = \dfrac{\sqrt[3]{a-b}}{m(n-a)}$\\[1ex]
+			$a = 10,82 \pm 0,03$\\[1ex]
+			$b = 2,786 \pm 0,0006$\\[1ex]
+			$m = 0,28 \pm 0,006$\\[1ex]
+			$n = 14,7 \pm 0,06$
+	}}\\[1ex]
+	$X = \dfrac{\sqrt[3]{10,82-2,786}}{0,28 \cdot (14,7-10,82)} = 1,84$\\[1ex]
+	$\dfrac{\varDelta X}{X} = \dfrac{\varDelta a + \varDelta b}{3(a-b)} + \dfrac{\varDelta m}{m} + \dfrac{\varDelta n + \varDelta a}{n-a}$\\[1ex]
+	$\dfrac{\varDelta X}{X} = \dfrac{0,03 + 0,0006}{3(10,82-2,786)} + \dfrac{0,006}{0,28} + \dfrac{0,06 + 0,03}{14,7-10,82} =$\\[1ex]
+	$= 0,00127 + 0,02143 + 0,02319 = 0,04589$\\[1ex]
+	$\varDelta X = \dfrac{\varDelta X}{X} \cdot X = 0,04589 \cdot 1,84 = 0,08$\\[1ex]
+	\fbox{$X = 1,84 \pm 0,08$}
+	\subsection*{3)}
+	\fbox{\parbox{180pt}{
+			$X = \sqrt{p(p-a)(p-b)(p-c)},$\\[1ex]
+			$p = \dfrac{a+b+c}{2}$\\[1ex]
+			$a = 46,3$\\[1ex]
+			$b = 29,72$\\[1ex]
+			$c = 37,654$
+	}}\\[1ex]
+	$p = \dfrac{46,3 + 29,72 + 37,654}{2} = 56,84$\\[1ex]
+	$X = \sqrt{56,84 \cdot (56,84-46,3) \cdot (56,84-29,72) \cdot (56,84-37,654)} =$\\[1ex]
+	$= \sqrt{311722,97} = 558$\\[1ex]
+	\fbox{$X = 558$}
 \end{document}
