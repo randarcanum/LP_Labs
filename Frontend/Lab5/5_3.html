@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main" id="box" style="height:480px">
+            <div class="forest center" id="forest">
+                Forest
+            </div>
+            <script>
+                function run(t) {
+                    forest.style.left = (box.offsetWidth - forest.offsetWidth)/2 - 5 + radius*Math.cos(t) + "px"
+                    forest.style.top = radius + 20 + radius*Math.sin(t) + "px"
+                    forest.style.transform = "rotate(" + (t + Math.PI/2) + "rad)"
+                    setTimeout(run, 10, t + 0.04)
+                }
+                var forest = document.getElementById("forest")
+                var box = document.getElementById("box")
+                var radius = 200
+                run(0)
+            </script>
+            <div class="nav center">
+                <a href="5_2.html">Назад</a>
+                <a href="5_4.html">Вперед</a>
+            </div>
+        </div>
+    </body>
+</html>

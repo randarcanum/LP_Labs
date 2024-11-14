@@ -10,18 +10,21 @@
             </div>
             <script>
                 function run() {
-                    forest.style.left = forest.offsetLeft + 4 + "px"
-                    while (forest.offsetLeft + forest.offsetWidth > box.offsetWidth - 5 && forest.innerText != 0)
-                        forest.innerText = forest.innerText.slice(0, -1)
-                    if (forest.innerText != 0) setTimeout(run, 10)
+                    forest.style.left = forest.offsetLeft + 4*flag + "px"
+                    if (forest.offsetLeft + forest.offsetWidth > box.offsetWidth - 20)
+                        flag = -1
+                    if (forest.offsetLeft < 10)
+                        flag = 1
+                    setTimeout(run, 10)
                 }
                 var forest = document.getElementById("forest")
                 var box = document.getElementById("box")
+                var flag = 1
                 run()
             </script>
             <div class="nav center">
-                <a>Назад</a>
-                <a href="5_2.html">Вперед</a>
+                <a href="5_1.html">Назад</a>
+                <a href="5_3.html">Вперед</a>
             </div>
         </div>
     </body>
