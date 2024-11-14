@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Заказ пледа</title>
+        <link rel="stylesheet" href="6_1.css">
+    </head>
+    <body>
+        <div class="form">
+            <h2>Заказать плед</h2>
+            <form>
+                <h4>Характеристики заказа:</h4>
+                <div class="flex list">
+                    <p>Размер*:</p>
+                    <div>
+                        <input type="radio" id="size_s" name="size" value="130x150" required>
+                        <label for="size_s">130x150</label><br>
+                        <input type="radio" id="size_m" name="size" value="150x170">
+                        <label for="size_m">150x170</label><br>
+                        <input type="radio" id="size_l" name="size" value="170x190">
+                        <label for="size_l">170x190</label><br>
+                        <input type="radio" id="size_xl" name="size" value="190x210">
+                        <label for="size_xl">190x210</label>
+                    </div>
+                </div>
+                <div class="flex list">
+                    <label for="color">Цвет*:</label>
+                    <input type="color" id="color" required>
+                </div>
+                <div class="flex file">
+                    <label for="print">Принт (опционально):</label>
+                    <input type="file" id="print" accept="image/png, image/jpg, image/jpeg, image/svg">
+                </div>
+                <h4>Персональные данные:</h4>
+                <div class="flex">
+                    <label for="name">Имя*:</label>
+                    <input class="text" type="text" id="name" required>
+                </div>
+                <div class="flex">
+                    <label for="email">Эл. почта*:</label>
+                    <input class="text" type="email" id="email" required>
+                </div>
+                <div class="flex list">
+                    <p>Город*:</p>
+                    <select id="city" required>
+                        <option value="Кишинев">Кишинев</option>
+                        <option value="Бельцы">Бельцы</option>
+                        <option value="Тирасполь">Тирасполь</option>
+                        <option value="Другой">Другой</option>
+                    </select>
+                </div>
+                <div class="flex list">
+                    <p>Доп. пожелания:</p>
+                    <div>
+                        <input type="checkbox" id="gift" name="gift">
+                        <label for="size_s">Это подарок</label>
+                    </div>
+                </div>
+                <div class="flex">
+                    <label for="comment">Комментарии к заказу:</label>
+                    <textarea id="comment" rows="3" cols="80"></textarea>
+                </div>
+                <input type="radio" id="agreement" name="agreement" required>
+                <label for="agreement">Я даю согласие на обработку персональных данных.</label>
+                <button onclick="order()">Сделать заказ</button>
+            </form>
+        </div>
+
+        <script>
+            function order() {
+                let size = ""
+                for (let i = 0; i < 4; i++)
+                    if (document.getElementsByName("size")[i].checked)
+                        size = document.getElementsByName("size")[i].value
+                let color = document.getElementById("color").value
+                let print = document.getElementById("print").value
+                let name = document.getElementById("name").value
+                let email = document.getElementById("email").value
+                let city = document.getElementById("city").value
+                let gift = document.getElementById("gift").checked
+                let comment = document.getElementById("comment").value
+                let agreement = document.getElementById("agreement").checked
+
+                if (size && color && name && email && city && agreement)
+                    alert("Ваш заказ принят!" +
+                        "\nИмя: " + name + 
+                        "\nПочта: " + email +
+                        "\nГород: " + city +
+                        "\nРазмер: " + size +
+                        "\nЦвет: " + color +
+                        "\nПринт: " + print +
+                        "\nЗаказ " + (gift ? "" : "не ") + "является подарком" +
+                        "\nКомментарии: " + "")
+                else alert("Заполните все обязательные поля")
+            }
+        </script>
+    </body>
+</html>

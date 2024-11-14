@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тест</title>
+        <link rel="stylesheet" href="6_2.css">
+    </head>
+    <body>
+        <div class="form">
+            <h2>Успехов в прохождении теста!</h2>
+            <form>
+                <label for="question1">1. Сколько минут требуется свету, чтобы достичь Земли от Солнца?</label><br>
+                <input type="text" id="question1" required>
+                <label for="question2">2. Сколько протонов в ядре атома водорода?</label><br>
+                <input type="text" id="question2" required>
+                <label for="question3">3. Сколько электронов в атоме углерода?</label><br>
+                <input type="text" id="question3" required>
+                <label for="question4">4. Сколько нейтронов в ядре атома урана-238?</label><br>
+                <input type="text" id="question4" required>
+                <label for="question5">5. Сколько законов классической механики сформулировал Исаак Ньютон?</label><br>
+                <input type="text" id="question5" required>
+                <label for="question6">6. Сколько планет в Солнечной системе?</label><br>
+                <input type="text" id="question6" required>
+                <label for="question7">7. Сколько дней занимает полный оборот Луны вокруг Земли?</label><br>
+                <input type="text" id="question7" required>
+                <label for="question8">8. Сколько основных типов элементарных частиц существует?</label><br>
+                <input type="text" id="question8" required>
+                <label for="question9">9. Сколько основных состояний вещества существует?</label><br>
+                <input type="text" id="question9" required>
+                <label for="question10">10. Сколько дней длилась миссия "Аполлон-11"?</label><br>
+                <input type="text" id="question10" required>
+                <button class="button" onclick="check()">Проверить ответы</button>
+            </form>
+        </div>
+
+        <script>
+            function check() {
+                let answers = [8, 1, 6, 146, 3, 8, 28, 3, 4, 8]
+                let check = false
+                let s = ""
+                for (let i = 0; i < 10; i++) {
+                    let ans = document.getElementById("question" + (i+1)).value
+                    if (ans == "") break
+                    s += "Вопрос " + (i+1) + ": " + ans + (ans == answers[i] ? " +" : " -\nПравильный ответ: " + answers[i]) + "\n"
+                    if (i == 9) check = true
+                }
+                if (check) alert(s)
+                else alert("Ответьте на все вопросы!")
+            }
+        </script>
+    </body>
+</html>
