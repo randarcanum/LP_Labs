@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Анимация</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <img src="img/nyan_0.png" name="cat" align="center" onmouseover="flag = false" onmouseout="flag = true">
+        <script>
+            let i = 0
+            let flag = true
+            function loop() {
+                i++
+                cat.src = flag ? "img/nyan_" + Math.floor(i/3)%12 + ".png" : "img/rainbow_" + i%33 + ".png"
+            }
+            setInterval(loop, 20)
+        </script>
+    </body>
+</html>

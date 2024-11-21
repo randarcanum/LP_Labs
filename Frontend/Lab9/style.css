@@ -1,0 +1,24 @@
+body, .date {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+}
+.main {
+    position: relative;
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    border: 5px solid black;
+    min-height: 40px;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+.text {
+    width: 60%;
+    padding: 10px;
+    font-size: large;
+    text-align: center;
+}

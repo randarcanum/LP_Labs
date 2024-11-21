@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Строки</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <p align="center">В этом тексте будет пробегать заглавная буква:</p>
+            <form>
+                <input class="text" type="text" id="capital">
+            </form>
+            <p align="center">А в этой строке <span>0</span><span id="run">открылись порталы </span><span>0</span></p>
+        </div>
+        <script>
+            let i = 0
+            let text = document.getElementById("capital")
+            let run = document.getElementById("run")
+            function cap() {
+                if (text.value) {
+                    i++
+                    i %= text.value.length
+                    text.value = text.value.slice(0, i).toLowerCase() + text.value.charAt(i).toUpperCase() + text.value.slice(i+1).toLowerCase()
+                }
+                run.innerText = run.innerText.slice(1) + run.innerText.charAt(0)
+            }
+            setInterval(cap, 100)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.form {
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border: 5px solid black;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+.test {
+    width: 98%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid black;
+}
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+}
+.list {
+    width: 40%;
+}
+.file {
+    width: 60%;
+}
+h2 {
+    margin-bottom: 20px;
+}
+.text {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid black;
+}

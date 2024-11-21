@@ -1,0 +1,25 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main {
+    position: relative;
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    border: 5px solid black;
+    min-height: 40px;
+}
+span:first-child {
+    color: orange;
+}
+span:last-child {
+    color: blue;
+}
+input {
+    width: 96%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}

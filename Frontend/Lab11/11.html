@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Фильтры</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <h2 id="title">Земля</h2>
+            <img src="world.gif" name="image" width="400px" onclick="change()">
+            <form class="flex">
+                <label>
+                    <input type="radio" name="rotate" onchange="img_transform(1)" checked><br>
+                    Нет поворота
+                </label>
+                <label>
+                    <input type="radio" name="rotate" onchange="img_transform(2)"><br>
+                    Поворот на 90&deg;
+                </label>
+                <label>
+                    <input type="radio" name="rotate" onchange="img_transform(3)"><br>
+                    Поворот на 180&deg;
+                </label>
+                <label>
+                    <input type="radio" name="rotate" onchange="img_transform(4)"><br>
+                    Поворот на 225&deg;
+                </label>
+            </form>
+            <form class="flex">
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(5)" checked><br>
+                    Нет отражения
+                </label>
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(6)"><br>
+                    Отражение по горизонтали
+                </label>
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(7)"><br>
+                    Отражение по вертикали
+                </label>
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(8)"><br>
+                    Прозрачность
+                </label>
+            </form>
+            <form class="flex">
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(9)"><br>
+                    Нет искажения
+                </label>
+                <label>
+                    <input type="radio" name="scale" onchange="img_transform(10)"><br>
+                    Искажение
+                </label>
+            </form>
+        </div>
+        <script>
+            let first = ""
+            let second = ""
+            let third = ""
+            let flag = true
+            let opacity = 1
+            function img_transform(arg) {
+                switch (arg) {
+                    case 1:
+                        first = "rotate(0deg)"
+                        break;
+                    case 2:
+                        first = "rotate(90deg)"
+                        break;
+                    case 3:
+                        first = "rotate(180deg)"
+                        break;
+                    case 4:
+                        first = "rotate(225deg)"
+                        break;
+                    case 5:
+                        opacity = 1
+                        second = "scale(1, 1)"
+                        break;
+                    case 6:
+                        opacity = 1
+                        second = "scaleX(-1)"
+                        break;
+                    case 7:
+                        opacity = 1
+                        second = "scaleY(-1)"
+                        break;
+                    case 8:
+                        opacity = 0.3
+                        second = "scale(1, 1)"
+                        break;
+                    case 9:
+                        third = "matrix(1, 0, 0, 1, 0, 0)"
+                        break;
+                    case 10:
+                        third = "matrix(" + Math.random()
+                        for (let i = 0; i < 5; i++) {
+                            third += ", " + Math.random()
+                        }
+                        third += ")"
+                        break;
+                }
+                image.style.webkitTransform = first + " " + second + " " + third
+                title.style.webkitTransform = first + " " + second + " " + third
+                image.style.mozTransform = first + " " + second + " " + third
+                title.style.mozTransform = first + " " + second + " " + third
+                image.style.msTransform = first + " " + second + " " + third
+                title.style.msTransform = first + " " + second + " " + third
+                image.style.oTransform = first + " " + second + " " + third
+                title.style.oTransform = first + " " + second + " " + third
+                image.style.transform = first + " " + second + " " + third
+                title.style.transform = first + " " + second + " " + third
+                image.style.opacity = opacity
+                title.style.opacity = opacity
+            }
+            async function change() {
+                await transition(1)
+                image.src = flag ? "cat.gif" : "world.gif"
+                title.innerText = flag ? "Кот" : "Земля"
+                await transition(0)
+                flag ^= 1
+            }
+            function transition(dir) {
+                return new Promise((resolve, reject) => {
+                    if (dir) fade()
+                    else unfade()
+                    function fade() {
+                        dir -= 0.01
+                        image.style.opacity = dir
+                        title.style.opacity = dir
+                        if (image.style.opacity > 0) setTimeout(fade, 10)
+                        else resolve()
+                    }
+                    function unfade() {
+                        dir += 0.01
+                        image.style.opacity = dir
+                        title.style.opacity = dir
+                        if (image.style.opacity < 1) setTimeout(unfade, 10)
+                        else resolve()
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

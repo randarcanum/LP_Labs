@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Калькулятор</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="calc">
+            <input class="first" type="text" id="first">
+            <input class="second" type="text" id="second">
+            <input class="res" type="text" id="res" disabled>
+            <button onclick="calc('sum')">+</button>
+            <button onclick="calc('sub')">-</button>
+            <button onclick="calc('mul')">*</button>
+            <button onclick="calc('div')">/</button>
+            <button onclick="calc('sqrt')">sqrt</button>
+            <button onclick="calc('pow')">pow</button>
+            <button onclick="calc('ln')">ln</button>
+            <button onclick="calc('rand')">rand</button>
+            <button onclick="calc('sin')">sin</button>
+            <button onclick="calc('cos')">cos</button>
+            <button onclick="calc('asin')">asin</button>
+            <button onclick="calc('acos')">acos</button>
+        </div>
+        <script>
+            function calc(mode) {
+                let two_args = new Set(["sum", "sub", "mul", "div", "pow"])
+                let xNaN = false
+                let x = document.getElementById("first").value
+                x = x != "" ? Number(x) : "NaN"
+                let y = document.getElementById("second").value
+                y = y != "" ? Number(y) : "NaN"
+                if (mode != "rand") {
+                    if (isNaN(x)) {
+                        alert("Пожалуйста, введите действительное число в первое поле.")
+                        document.getElementById("first").value = ""
+                        xNaN = true
+                    }
+                    if (two_args.has(mode)) {
+                        if (isNaN(y)) {
+                            alert("Пожалуйста, введите действительное число во второе поле.")
+                            document.getElementById("second").value = ""
+                            document.getElementById("res").value = ""
+                            return
+                        }
+                    } else document.getElementById("second").value = ""
+                    if (xNaN) {
+                        document.getElementById("res").value = ""
+                        return
+                    }
+                } else {
+                    document.getElementById("first").value = ""
+                    document.getElementById("second").value = ""
+                }
+                switch(mode) {
+                    case "sum":
+                        document.getElementById("res").value = x + y
+                        break
+                    case "sub":
+                        document.getElementById("res").value = x - y
+                        break
+                    case "mul":
+                        document.getElementById("res").value = x * y
+                        break
+                    case "div":
+                        document.getElementById("res").value = x / y
+                        break
+                    case "sqrt":
+                        document.getElementById("res").value = Math.sqrt(x)
+                        break
+                    case "pow":
+                        document.getElementById("res").value = Math.pow(x, y)
+                        break
+                    case "ln":
+                        document.getElementById("res").value = Math.log(x)
+                        break
+                    case "rand":
+                        document.getElementById("res").value = Math.random()
+                        break
+                    case "sin":
+                        document.getElementById("res").value = Math.sin(x)
+                        break
+                    case "cos":
+                        document.getElementById("res").value = Math.cos(x)
+                        break
+                    case "asin":
+                        document.getElementById("res").value = Math.asin(x)
+                        break
+                    case "acos":
+                        document.getElementById("res").value = Math.acos(x)
+                        break
+                }
+            }
+        </script>
+    </body>
+</html>

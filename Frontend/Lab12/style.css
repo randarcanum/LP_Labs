@@ -1,0 +1,8 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 90vh;
+}
+.ball1 {
+    position: absolute;
+    transform-origin: 50% 50%;
+}

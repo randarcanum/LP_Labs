@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Курсор</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onmousemove="mouse(event)">
+        <img class="ball1" src="ball.png" name="ball1" width="100px">
+        <script>
+            let x = 0
+            let y = 0
+            ball1.style.left = Math.random()*screen.availWidth + "px"
+            ball1.style.top = Math.random()*screen.availHeight + "px"
+            setInterval(chase, 10)
+            function mouse(event) {
+                x = event.clientX
+                y = event.clientY
+            }
+            function chase() {
+                let angle = Math.atan2(y-ball1.offsetTop-ball1.offsetWidth/2, x-ball1.offsetLeft-ball1.offsetWidth/2)
+                if (Math.hypot(y-ball1.offsetTop-ball1.offsetWidth/2, x-ball1.offsetLeft-ball1.offsetWidth/2) > 2) {
+                    ball1.style.left = ball1.offsetLeft + Math.cos(angle)*2  + "px"
+                    ball1.style.top = ball1.offsetTop + Math.sin(angle)*2 + "px"
+                }
+            }
+        </script>
+    </body>
+</html>

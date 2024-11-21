@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Отсчет</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <p align="center">Вы пробыли на странице <span id="seconds">0 секунд</span></p>
+            <form>
+                <div class="flex">
+                    <label for="target">Выберите дату:</label>
+                    <input class="text date" type="datetime-local" id="target">
+                </div>
+                <div class="flex">
+                    <label for="remaining" id="rem_label">Осталось:</label>
+                    <input class="text" type="text" id="remaining" disabled>
+                </div>
+            </form>
+        </div>
+        <script>
+            let time = Date.now()
+            function end(n, unit, e0, e1, e2) {
+                return (n + " " + unit + ((n+90)%100 < 10 ? e0 : n%10 == 1 ? e1 : (n+9)%10 < 4 ? e2 : e0))
+            }
+            function wait() {
+                let sec = Math.floor((Date.now()-time)/1000)
+                document.getElementById("seconds").innerText = end(sec, "секунд", "", "у", "ы")
+                document.body.style.backgroundColor = "hsl(" + sec*6 + ", 100%, 50%)"
+                let rem = ""
+                if (document.getElementById("target").value) {
+                    let rem_ms = Date.parse(document.getElementById("target").value)-Date.now()
+                    document.getElementById("rem_label").innerText = rem_ms >= 0 ? "Осталось:" : "Прошло:"
+                    rem_ms = Math.abs(rem_ms)
+                    if (rem_ms >= 86400000)
+                        rem += end(Math.floor(rem_ms/86400000), "д", "ней", "ень", "ня") + " "
+                    if (rem_ms >= 3600000)
+                        rem += end(Math.floor(rem_ms/3600000)%24, "час", "ов", "", "а") + " "
+                    if (rem_ms >= 60000)
+                        rem += end(Math.floor(rem_ms/60000)%60, "минут", "", "а", "ы") + " "
+                    rem += end(Math.floor(rem_ms/1000)%60, "секунд", "", "а", "ы")
+                    if (rem_ms < 100) alert("Время пришло!")
+                    document.getElementById("remaining").value = rem
+                }
+            }
+            setInterval(wait, 100)
+        </script>
+    </body>
+</html>
