@@ -30,7 +30,7 @@ input {
     font-size: large;
     color: black;
 }
-span {
+label {
     width: 100%;
     text-align: center;
 }
