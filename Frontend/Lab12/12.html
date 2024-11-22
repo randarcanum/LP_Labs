@@ -5,22 +5,80 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body onmousemove="mouse(event)">
-        <img class="ball1" src="ball.png" name="ball1" width="100px">
+        <img src="ball.png" id="ball1" width="100px">
+        <img src="ball.png" id="ball2" width="50px">
+        <img src="cross.png" id="crosshair" width="100px">
+        <img src="hole.png" id="hole" width="100px">
+        <form>
+            <div><span>X:</span><input type="text" id="coordX" disabled></div>
+            <div><span>Y:</span><input type="text" id="coordY" disabled></div>
+            <div><span>Счет:</span><input type="text" id="score" value="0" disabled></div>
+            <div><span>Лучший результат:</span><input type="text" id="best" value="0" disabled></div>
+        </form>
         <script>
-            let x = 0
-            let y = 0
-            ball1.style.left = Math.random()*screen.availWidth + "px"
-            ball1.style.top = Math.random()*screen.availHeight + "px"
-            setInterval(chase, 10)
+            class Balls {
+                constructor(name) {
+                    this.obj = name
+                    this.obj.style.opacity = 1
+                    this.roll()
+                }
+                roll() {
+                    this.obj.style.left = Math.random()*(window.innerWidth-this.obj.offsetWidth) + "px"
+                    this.obj.style.top = Math.random()*(window.innerHeight-this.obj.offsetHeight) + "px"
+                }
+                get centerX() {
+                    return this.obj.offsetLeft+this.obj.offsetWidth/2
+                }
+                get centerY() {
+                    return this.obj.offsetTop+this.obj.offsetHeight/2
+                }
+                update(speed) {
+                    let angle = Math.atan2(y-this.centerY, x-this.centerX)
+                    if (Math.hypot(y-this.centerY, x-this.centerX) > speed) {
+                        this.obj.style.left = this.obj.offsetLeft + Math.cos(angle)*speed + "px"
+                        this.obj.style.top = this.obj.offsetTop + Math.sin(angle)*speed + "px"
+                    }
+                }
+            }
+            let x
+            let y
+            best.value = 0
+            flag = true
+            console.log(screen.availHeight)
             function mouse(event) {
+                if (flag) {
+                    blue = new Balls(ball1)
+                    red = new Balls(ball2)
+                    cross = new Balls(crosshair)
+                    flag = false
+                    setInterval(chase, 10)
+                }
                 x = event.clientX
+                coordX.value = x
                 y = event.clientY
+                coordY.value = y
             }
             function chase() {
-                let angle = Math.atan2(y-ball1.offsetTop-ball1.offsetWidth/2, x-ball1.offsetLeft-ball1.offsetWidth/2)
-                if (Math.hypot(y-ball1.offsetTop-ball1.offsetWidth/2, x-ball1.offsetLeft-ball1.offsetWidth/2) > 2) {
-                    ball1.style.left = ball1.offsetLeft + Math.cos(angle)*2  + "px"
-                    ball1.style.top = ball1.offsetTop + Math.sin(angle)*2 + "px"
+                blue.update(2)
+                red.update(3)
+                cross.update(4)
+                if (Math.hypot(blue.centerY-red.centerY, blue.centerX-red.centerX) < (blue.obj.offsetWidth+red.obj.offsetWidth)/2.3) {
+                    blue.roll()
+                    red.roll()
+                    score.value++
+                }
+                if (Math.hypot(y-cross.centerY, x-cross.centerX) < 5) {
+                    best.value = Math.max(score.value, best.value)
+                    score.value = 0
+                    hole.style.opacity = 1
+                    hole.style.left = cross.obj.offsetLeft + "px"
+                    hole.style.top = cross.obj.offsetTop + "px"
+                    blue.roll()
+                    red.roll()
+                    cross.roll()
+                    setTimeout(() => {
+                        hole.style.opacity = 0
+                    }, 500)
                 }
             }
         </script>
