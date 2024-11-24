@@ -46,13 +46,22 @@ public class Time2 {
         this.time += second - get_second();
     }
     public int get_hour() {
-        return time / 3600;
+        return time / 3600 % 24;
     }
     public int get_minute() {
         return time / 60 % 60;
     }
     public int get_second() {
         return time % 60;
+    }
+    public void tick() {
+        time++;
+    }
+    public void incrementMinute() {
+        time += 60;
+    }
+    public void incrementHour() {
+        time += 3600;
     }
     public String toUniversalString() {
         return String.format("%02d:%02d:%02d", get_hour(), get_minute(), get_second());
