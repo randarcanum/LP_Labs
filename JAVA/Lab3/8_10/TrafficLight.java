@@ -2,7 +2,7 @@ public enum TrafficLight {
     RED(40),
     YELLOW(3),
     GREEN(20);
-    int duration;
+    private final int duration;
     TrafficLight(int duration) {
         this.duration = duration;
     }
