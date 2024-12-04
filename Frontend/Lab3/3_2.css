@@ -1,0 +1,15 @@
+body {
+    font-family: Comic Sans MS;
+    font-size: 1.5em;
+    background-image: url(coffee.jpg);
+    color: #2a140e;
+}
+a:link {
+    color: #000000;
+}
+a:visited {
+    color: #967259;
+}
+a:active {
+    color: #634832;
+}

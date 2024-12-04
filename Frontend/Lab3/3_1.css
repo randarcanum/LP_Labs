@@ -1,0 +1,25 @@
+body {
+    position: relative;
+}
+div {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+.text {
+    color: red;
+}
+.shadow {
+    color:darkred;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+.shine {
+    color:silver;
+    padding-left: 7px;
+    padding-top: 7px;
+}
