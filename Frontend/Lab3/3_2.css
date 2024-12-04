@@ -4,6 +4,9 @@ body {
     background-image: url(coffee.jpg);
     color: #2a140e;
 }
+p {
+    text-indent: 3em;
+}
 a:link {
     color: #000000;
 }
@@ -12,4 +15,45 @@ a:visited {
 }
 a:active {
     color: #634832;
+}
+.main {
+    border: 2px solid black;
+    padding: 10px;
+}
+h2, .center {
+    text-align: center;
+}
+.epygraph {
+    text-align: right;
+    font-style: italic;
+    color: green;
+    text-indent: -1;
+}
+.colored {
+    color: #634832;
+}
+.stamp {
+    float: right;
+}
+table, th, td {
+    border: 2px solid;
+}
+.chem td:not(:first-child) {
+    text-align: right;
+}
+.chem.head:not(:first-child) {
+    width: 15em;
+}
+.head {
+    text-align: center;
+    font-weight: bold;
+}
+.cups {
+    text-align: center;
+}
+.cups tr:nth-of-type(3n) td:first-child {
+    font-weight: bold;
+}
+.size td {
+    width: 5em;
 }
