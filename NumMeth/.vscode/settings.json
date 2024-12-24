@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "optional": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "*.tcc": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp"
+    }
+}
